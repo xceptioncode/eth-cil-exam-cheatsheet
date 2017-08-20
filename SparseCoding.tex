@@ -27,10 +27,15 @@ Objective: $\mathbf{z}^\star \in \argmin_{\mathbf{z}} \|\mathbf{x} - \mathbf{Uz}
 \end{inparaenum}
 \\\textbf{Exact recovery} when: $K<1/2( 1+1/m(\mathbf{U}))$
 
-\textbf{Compressive Sensing}
+\textbf{Compressive Sensing}: Compress data while gathering:
 \begin{inparaitem}[\color{red}\textbullet]
   \item $\mathbf{x} \in \mathbb{R}^D$, $K$-sparse in o.n.b. $\mathbf{U}$. $\mathbf{y} \in \mathbb{R}^M$ with $y_i = \langle \mathbf{w}_i, \mathbf{x}\rangle $: $M$ lin. combinations of signal; $\mathbf{y} = \mathbf{Wx} = \mathbf{WUz} = \mathbf{\theta z}$, $\theta \in \mathbb{R}^{M \times D}$
   \item Reconstruct $\mathbf{x} \in \mathbb{R}^D$ from $\mathbf{y}$; find $\mathbf{z}^\star \in \argmin_{\mathbf{z}}\|\mathbf{z}\|_0$, s.t. $\mathbf{y} = \mathbf{\theta z}$ (e.g. with MP). Given $\mathbf{z}$, reconstruct $\mathbf{x}$ via $\mathbf{x} = \mathbf{Uz}$
+\end{inparaitem}
+\\Sufficient conditions:
+\begin{inparaitem}[\color{red}\textbullet]
+  \item $\mathbf{W} = $ Gaussian random projection, i.e. $w_{ij}\sim\mathcal{N}(0, \frac{1}{D})$
+  \item M $\geq cK log(\frac{D}{K})$, where $c$ is some constant
 \end{inparaitem}
 
 \subsection*{Dictionary Learning}
