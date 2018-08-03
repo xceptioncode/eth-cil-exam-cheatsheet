@@ -2,33 +2,43 @@
 \section{Essentials}
 \subsection*{Matrix/Vector}
 \begin{compactdesc}
-	\item[Orthogonal:] (i.e. columns are orthonormal!) $\mathbf{A}^{-1} = \mathbf{A}^\top$, $\mathbf{A} \mathbf{A}^\top = \mathbf{A}^\top \mathbf{A} = \mathbf{I}$, $\operatorname{det}(\mathbf{A}) \in \{+1, -1\}$, $\operatorname{det}(\mathbf{A}^\top \mathbf{A}) = 1$
+    \item[Range, Kernel, Nullity:]
+    % range
+    $\mathit{range}(\mathbf{A}) = \{\textbf{z} | \exists \textbf{x}: \textbf{z}=\textbf{Ax}\} = \mathit{span}(\text{columns of A})$ \\
+    % rank
+    $\mathit{rank}(\mathbf{A}) = \mathit{dim}(\mathit{range}(\mathbf{A}))$ \\
+    % kernel
+    $\mathit{kernel}(A) = \{\mathbf{x}: \mathbf{Ax}=\mathbf{0}\}$ (spans nullspace)\\
+    % nullity
+    $\mathit{nullity}(\mathbf{A}) = \mathit{dim}(\mathit{kernel}(\mathbf{A}))$
+    \item[Rank-nullity Theorem:]
+    $\textit{dim}(\textit{kernel}(\textbf{A}))+\textit{dim}(\textit{range}(\textbf{A})) = n$
+	\item[Orthogonal Matrix:] $\mathbf{A}^{-1} = \mathbf{A}^\top$, $\mathbf{A} \mathbf{A}^\top = \mathbf{A}^\top \mathbf{A} = \mathbf{I}$, $\operatorname{det}(\mathbf{A}) \in \{+1, -1\}$, $\operatorname{det}(\mathbf{A}^\top \mathbf{A}) = 1$,
+	preserves inner product, norm, distance, angle, rank, matrix orthogonality 
+	
 	\item[Inner Product:] $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^\top \mathbf{y} = \sum_{i=1}^{N} \mathbf{x}_i \mathbf{y}_i$.
 	\begin{inparaitem}
 		\item $\langle \mathbf{x} \pm \mathbf{y}, \mathbf{x} \pm \mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{x} \rangle \pm 2 \langle \mathbf{x}, \mathbf{y} \rangle + \langle \mathbf{y}, \mathbf{y} \rangle$
-		\item $\langle \mathbf{x}, \mathbf{y} + \mathbf{z} \rangle = \langle \mathbf{x}, \mathbf{y} \rangle + \langle \mathbf{x}, \mathbf{z} \rangle$
-		\item $\langle \mathbf{x} + \mathbf{y}, \mathbf{z} \rangle = \langle \mathbf{x}, \mathbf{z} \rangle + \langle \mathbf{y}, \mathbf{z} \rangle$
-		\item $\langle \mathbf{x}, \mathbf{y} \rangle = \|\mathbf{x}\|_2 \cdot \|\mathbf{y}\|_2 \cdot \cos(\theta)$
-		\item If $\mathbf{y}$ is a unit vector then $\langle \mathbf{x}, \mathbf{y} \rangle$ projects $\mathbf{x}$ onto $\mathbf{y}$
+		\item $(\mathbf{u}_i^T\mathbf{v}_j)\mathbf{v}_j = (\mathbf{v}_j\mathbf{v}_j^T)\mathbf{u}_i$
 	\end{inparaitem}
 	\item[Outer Product:] $\mathbf{u} \mathbf{v}^\top$, $(\mathbf{u} \mathbf{v}^\top)_{i, j} = \mathbf{u}_i \mathbf{v}_j$
 	\item[Transpose:] $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$,  $(\mathbf{A}\mathbf{B})^\top= \mathbf{B}^\top\mathbf{A}^\top$, $(\mathbf{A}+\mathbf{B})^\top= \mathbf{A}^\top + \mathbf{B}^\top$
 	\item[Cross product:] $\vec{a}\times\vec{b}=(a_2b_3-a_3b_2, a_3b_1-a_1b_3, a_1b_2-a_2b_1)^\top$
+	\item[Cauchy-Schwarz inequality:] $|\langle\mathbf{u}, \mathbf{v}\rangle| \leq \|\mathbf{u}\|\|\mathbf{v}\|$
 \end{compactdesc}
 
 \subsection*{Norms}
 \begin{inparaitem}
-	\item $\|\mathbf{x}\|_0 = |\{i | x_i \neq 0\}|$
-	\item $\|\mathbf{x}\|_2 = \sqrt{\sum_{i=1}^{N} \mathbf{x}_i^2} = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$
-	\item $\|\mathbf{u}-\mathbf{v}\|_2 = \sqrt{(\mathbf{u}-\mathbf{v})^\top(\mathbf{u}-\mathbf{v})}$
-	\item $\|\mathbf{x}\|_p = \left( \sum_{i=1}^{N} |x_i|^p \right)^{\frac{1}{p}}$
-	\item $\mathbf{A} \in \mathbb{R}^{N \times N}, \|\mathbf{A}\|_F =\allowbreak \sqrt{trace(\mathbf{A}\mathbf{A}^\top)}$
+	\item $\|\mathbf{x}\|_0 = |\{i | x_i \neq 0\}|$ \\
+	\item $\|\mathbf{x}\|_2 = \sqrt{\sum_{i=1}^{N} \mathbf{x}_i^2} = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$ \\
+	\item $\|\mathbf{u}-\mathbf{v}\|_2 = \sqrt{(\mathbf{u}-\mathbf{v})^\top(\mathbf{u}-\mathbf{v})}$ \\
+	\item $\|\mathbf{x}\|_p = \left( \sum_{i=1}^{N} |x_i|^p \right)^{\frac{1}{p}}$ \\
 	\item
-	$\|\mathbf{M}\|_F =\allowbreak \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n}\mathbf{m}_{i,j}^2} =\allowbreak \sqrt{\sum_{i=1}^{\min\{m, n\}} \sigma_i^2}$
+	$\|\mathbf{M}\|_F =\allowbreak \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n}\mathbf{m}_{i,j}^2} = \sqrt{trace(\mathbf{M}^T\mathbf{M})} =\allowbreak \sqrt{\sum_{i=1}^{\min\{m, n\}} \sigma_i^2} = \|\sigma(\mathbf{A})\|_2 $\\
 	\item
-	$\|\mathbf{M}\|_1 = \sum_{i,j} | m_{i,j}|$
-	\item $\|\mathbf{M}\|_2 = \sigma_{\text{max}}(\mathbf{M})$\\
-	$\|\mathbf{M}\|_p = \max_{\mathbf{v} \neq 0} \frac{\|\mathbf{M}\mathbf{v}\|_p}{\|\mathbf{v}\|_p}$
+	$\|\mathbf{M}\|_1 = \sum_{i,j} | m_{i,j}|$ \\
+	\item $\|\mathbf{M}\|_2 = \sigma_{\text{max}}(\mathbf{M}) = \|\sigma(\mathbf(M))\|_\infty$\\
+	\item $\|\mathbf{M}\|_p = \max_{\mathbf{v} \neq 0} \frac{\|\mathbf{M}\mathbf{v}\|_p}{\|\mathbf{v}\|_p} = \|\sigma(\mathbf{A})\|_p$ (Schatten)\\
 	\item $\|\mathbf{M}\|_\star = \sum_{i=1}^{\min(m, n)} \sigma_i$
 \end{inparaitem}
 

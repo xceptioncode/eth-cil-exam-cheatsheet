@@ -1,12 +1,12 @@
 % !TEX root = Main.tex
-\section{Optimization}
+\section{Matrix Approximation \& Reconstruction}
 
 \subsection*{Alternating Least Squares}
-$f(U,v_i) sum_{(i,j)\in I} (a_{i,j} - \langle u_j, v_i \rangle)^2$\\
-$f(u_i,V) sum_{(i,j)\in I} (a_{i,j} - \langle u_j, v_i \rangle)^2$\\
+$f(U,v_i) = \sum_{(i,j)\in I} (a_{i,j} - \langle u_j, v_i \rangle)^2$\\
+$f(u_i,V) = \sum_{(i,j)\in I} (a_{i,j} - \langle u_j, v_i \rangle)^2$\\
 Least squares problems which are convex.
 
-
+% YZF: delete?
 \subsection*{Coordinate Descent}
 1. init: $\mathbf{x}^{(0)} \in \mathbb{R}^D$\\
 2. for $t = 0 \ \text{to} \ \mathit{maxIter}$:\\
@@ -43,10 +43,19 @@ Minimize  $f(\mathbf{x})$ s.t. $g_i(\mathbf{x}) \leq 0,\ i = 1, .., m$ (\textbf{
 	\item[Dual Problem:] $\max_{\boldsymbol{\lambda}, \boldsymbol{\nu}} D(\boldsymbol{\lambda}, \boldsymbol{\nu})$ s.t. $\boldsymbol{\lambda} \geq \mathbf{0}$. Note: $\max_{\boldsymbol{\lambda}, \boldsymbol{\nu}} D(\boldsymbol{\lambda}, \boldsymbol{\nu}) \le \min_\mathbf{x}{f(\mathbf{x})}$, equality if $dom\ f$ and $f$ convex
 \end{compactdesc}
 
+% YZF: need revising
 \subsection*{Convex Optimization}
 Def.: $\{(x,t)|x \in dom f, f(x) \leq t\}$, $f : \mathbb{R}^D \rightarrow \mathbb{R}$ is convex, if $dom\ f$ is a convex set, and if $\forall \mathbf{x}, \mathbf{y} \in dom\ f$, and for $0 \leq \alpha \leq 1$: $f(\alpha \mathbf{x} + (1 - \alpha)\mathbf{y}) \leq \alpha f(\mathbf{x}) + (1-\alpha)f(\mathbf{y})$. local=global min, \textbf{Convergence}: $f(\mathbf{x}^{(t)}) - f(\mathbf{x}^*) \le \frac{c}{t}$.
 \textbf{Subgradient} $g \in \mathbb{R}^D$ of $f$ at $\mathbf{x}$: $f(\mathbf{y}) \geq f(\mathbf{x}) + g^\top(\mathbf{y}-\mathbf{x}) \ \forall \mathbf{y}$
 
 \subsection*{Convex Relaxation}
-Replace non-convex rank constraints by convex norm constraints.\\
+Replace non-convex rank constraints by convex norm constraints (superset). Then project optimum back (hopefully still optimal).\\
 Nuclear norm: $||A||_* = \sum_i \sigma_i$
+
+
+% Added by Zhifei Yang
+\subsection*{Function Convexity}
+$f(\lambda x+(1-\lambda)y)\leq\lambda f(x)+(1-\lambda)f(y) \forall\lambda\in[0,1]$\\
+Convex $\iff$ Hessian p.s.d\\
+positive semi-definite: all principal minors (same-indexed rows and columns) $\geq$ 0\\
+positive definite: leading principal minors $>$ 0
