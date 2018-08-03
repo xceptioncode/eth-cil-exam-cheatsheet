@@ -8,7 +8,7 @@ Please be advised that nothing found here is guaranteed to be complete, correct 
 
 # Note
 The content of this summary is largely based on [Gregor Wegberg's](https://github.com/groggi) [CIL Exam 2015 Summary](https://github.com/groggi/eth-cil-exam-summary) and [Marcel Mohler's](https://github.com/mohlerm) [CIL Exam 2016 Summary](https://github.com/mohlerm/eth-cil-exam-summary)
-It has been adapted to the new lecture content of 2017.
+It has been adapted to the new lecture content of 2018.
 
 # Download latest PDF
-[Latex online link](https://latexonline.cc/compile?git=https://github.com/ABBDVD/eth-cil-exam-summary&target=main.tex)
+[Latex online link](https://latexonline.cc/compile?git=https://github.com/Xivid/eth-cil-exam-summary&target=main.tex)
