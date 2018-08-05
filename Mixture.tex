@@ -4,13 +4,15 @@
 \textbf{Target:} $\min_{\mathbf{U}, \mathbf{Z}} J(\mathbf{U}, \mathbf{Z}) = \|\mathbf{X} - \mathbf{U} \mathbf{Z}\|_F^2$\\
 $= \sum_{n=1}^N \sum_{k=1}^K \mathbf{z}_{k,n} \|\mathbf{x}_n - \mathbf{u}_k\|_2^2$\\
 1. \textbf{Initiate:} choose $K$ centroids $\mathbf{U} = [\mathbf{u}_1, \ldots, \mathbf{u}_K]$\\
-2. \textbf{Assign:} data points to clusters. $k^\star(\mathbf{x}_n) = \argmin_k \{ \|\mathbf{x}_n - \mathbf{u}_k\|_2 \}$ returns cluster $k^\star$, whose centroid $\mathbf{u}_{k^\star}$ is closest to data point $\mathbf{x}_n$. Set $\mathbf{z}_{k^\star,n} = 1$, and for $ l \neq k^\star~ \mathbf{z}_{l,n}=0$.\\
-3. \textbf{Update} centroids: $\mathbf{u}_k = \frac{\sum_{n=1}^N z_{k,n} \mathbf{x}_n}{\sum_{n=1}^N z_{k,n}}$.\\
+2. \textbf{Cluster Assign:} data points to clusters. $k^\star(\mathbf{x}_n) = \argmin_k \{ \|\mathbf{x}_n - \mathbf{u}_k\|_2 \}$ returns cluster $k^\star$, whose centroid $\mathbf{u}_{k^\star}$ is closest to data point $\mathbf{x}_n$. Set $\mathbf{z}_{k^\star,n} = 1$, and for $ l \neq k^\star~ \mathbf{z}_{l,n}=0$.\\
+3. \textbf{Update centroids}: $\mathbf{u}_k = \frac{\sum_{n=1}^N z_{k,n} \mathbf{x}_n}{\sum_{n=1}^N z_{k,n}}$.\\
 4. Repeat from step 2, stops if $\|\mathbf{Z} - \mathbf{Z}^\text{new}\|_0 = \|\mathbf{Z} - \mathbf{Z}^\text{new}\|^2_F = 0$.\\
 Computational cost: $O(k\cdot n \cdot d)$
 
 
 \subsection*{Gaussian Mixture Models (GMM)}
+Gaussian $p(x)=\frac{1}{\sqrt{2\pi}\sigma}\mathit{exp}(-\frac{(x-\mu)^2}{2\sigma^2})$
+Multivariate $p(x;\mu;\Sigma)=\frac{1}{|\Sigma|^{\frac{1}{2}}(2\pi)^{\frac{D}{2}}}\mathit{exp}[-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu)]$ \\
 For GMM let $\boldsymbol{\theta}_k = (\boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)$; $p_{\theta_k}(\mathbf{x}) = \mathcal{N}(\mathbf{x} | \boldsymbol{\mu}_k, \Sigma_k)$\\
 \textbf{Mixture Models:} $p_\theta(\mathbf{x}) = \sum_{k=1}^K \pi_k p_{\theta_k}(\mathbf{x})$\\
 \textbf{Assignment variable (generative model):} $z_{ij} \in \{0, 1\}$, $\sum_{j=1}^k z_{ij} = 1$\\
@@ -40,7 +42,7 @@ $, \boldsymbol{\pi}_k^{(t)} := \frac{1}{N} \sum_{n=1}^N q_{k,n}$\\
 $\Sigma_k^{(t)} = \frac{\sum_{n=1}^N q_{k, n} (\mathbf{x}_n - \boldsymbol{\mu}_k^{(t)})(\mathbf{x}_n - \boldsymbol{\mu}_k^{(t)})^\top}{\sum_{n=1}^N q_{k,n}}$
 
 \textbf{Discussion K-means vs. EM}\\
-hard assignment vs soft. sherical clusters shapes vs covariance matrix. fast vs slow and more iteration. K-means can be used as initialization for EM.\\
+hard assignment vs soft. spherical clusters shapes vs covariance matrix. fast vs slow and more iteration. K-means can be used as initialization for EM.\\
 K-means as a special case of GMM with covariances $\Sigma_j = \sigma^2 I$. in the limit of $\sigma \rightarrow 0$, recover K-means (hard assignments).
 
 \textbf{Model Order Selection (AIC / BIC for GMM)}\\

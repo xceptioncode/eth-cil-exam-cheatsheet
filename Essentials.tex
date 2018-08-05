@@ -13,6 +13,7 @@
     $\mathit{nullity}(\mathbf{A}) = \mathit{dim}(\mathit{kernel}(\mathbf{A}))$
     \item[Rank-nullity Theorem:]
     $\textit{dim}(\textit{kernel}(\textbf{A}))+\textit{dim}(\textit{range}(\textbf{A})) = n$
+    
 	\item[Orthogonal Matrix:] $\mathbf{A}^{-1} = \mathbf{A}^\top$, $\mathbf{A} \mathbf{A}^\top = \mathbf{A}^\top \mathbf{A} = \mathbf{I}$, $\operatorname{det}(\mathbf{A}) \in \{+1, -1\}$, $\operatorname{det}(\mathbf{A}^\top \mathbf{A}) = 1$,
 	preserves inner product, norm, distance, angle, rank, matrix orthogonality 
 	
@@ -22,6 +23,7 @@
 		\item $(\mathbf{u}_i^T\mathbf{v}_j)\mathbf{v}_j = (\mathbf{v}_j\mathbf{v}_j^T)\mathbf{u}_i$
 	\end{inparaitem}
 	\item[Outer Product:] $\mathbf{u} \mathbf{v}^\top$, $(\mathbf{u} \mathbf{v}^\top)_{i, j} = \mathbf{u}_i \mathbf{v}_j$
+    \item[Trace:] $\mathit{trace}(\mathbf{XYZ})=\mathit{trace}(\mathbf{ZXY})$
 	\item[Transpose:] $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$,  $(\mathbf{A}\mathbf{B})^\top= \mathbf{B}^\top\mathbf{A}^\top$, $(\mathbf{A}+\mathbf{B})^\top= \mathbf{A}^\top + \mathbf{B}^\top$
 	\item[Cross product:] $\vec{a}\times\vec{b}=(a_2b_3-a_3b_2, a_3b_1-a_1b_3, a_1b_2-a_2b_1)^\top$
 	\item[Cauchy-Schwarz inequality:] $|\langle\mathbf{u}, \mathbf{v}\rangle| \leq \|\mathbf{u}\|\|\mathbf{v}\|$
@@ -34,12 +36,13 @@
 	\item $\|\mathbf{u}-\mathbf{v}\|_2 = \sqrt{(\mathbf{u}-\mathbf{v})^\top(\mathbf{u}-\mathbf{v})}$ \\
 	\item $\|\mathbf{x}\|_p = \left( \sum_{i=1}^{N} |x_i|^p \right)^{\frac{1}{p}}$ \\
 	\item
-	$\|\mathbf{M}\|_F =\allowbreak \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n}\mathbf{m}_{i,j}^2} = \sqrt{trace(\mathbf{M}^T\mathbf{M})} =\allowbreak \sqrt{\sum_{i=1}^{\min\{m, n\}} \sigma_i^2} = \|\sigma(\mathbf{A})\|_2 $\\
+	$\|\mathbf{M}\|_F =\allowbreak \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n}\mathbf{m}_{i,j}^2} = \sqrt{\sum_{i=1}^{\min\{m, n\}} \sigma_i^2} \allowbreak = \|\sigma(\mathbf{A})\|_2  = \sqrt{trace(\mathbf{M}^T\mathbf{M})} $\\
+	\item $\|\mathbf{M}\|_G=\sqrt{\sum_{ij}{g_{ij}x^2_{ij}}}$ (weighted Frobenius) \\
 	\item
 	$\|\mathbf{M}\|_1 = \sum_{i,j} | m_{i,j}|$ \\
 	\item $\|\mathbf{M}\|_2 = \sigma_{\text{max}}(\mathbf{M}) = \|\sigma(\mathbf(M))\|_\infty$\\
 	\item $\|\mathbf{M}\|_p = \max_{\mathbf{v} \neq 0} \frac{\|\mathbf{M}\mathbf{v}\|_p}{\|\mathbf{v}\|_p} = \|\sigma(\mathbf{A})\|_p$ (Schatten)\\
-	\item $\|\mathbf{M}\|_\star = \sum_{i=1}^{\min(m, n)} \sigma_i$
+	\item $\|\mathbf{M}\|_\star = \sum_{i=1}^{\min(m, n)} \sigma_i = \|\sigma(\mathbf{A})\|_1$ (nuclear)
 \end{inparaitem}
 
 \subsection*{Derivatives}
@@ -78,3 +81,12 @@ if $\mathbf{A}$ symmetric: $A = \mathbf{Q} \boldsymbol{\Lambda} \mathbf{Q^\top}$
 	\item expectation $\mu_x := E[X]:=\sum_{x \in X}xP(x)$
 	\item standard deviation $\sigma_x := \sqrt{Var[X]}$
 \end{inparaitem}
+
+
+\subsection*{Lagrangian Multipliers}
+Minimize  $f(\mathbf{x})$ s.t. $g_i(\mathbf{x}) \leq 0,\ i = 1, .., m$ (\textbf{inequality constr.}) and $h_i(\mathbf{x}) = \mathbf{a}_i^\top \mathbf{x} - b_i = 0,\ i = 1, .., p$ (\textbf{equality constraint})
+\begin{compactdesc}
+	\item[Lagrangian:] $L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}) := f(\mathbf{x}) + \sum_{i=1}^m \lambda_i g_i(\mathbf{x}) + \sum_{i=1}^p \nu_i h_i(\mathbf{x})$
+	\item[Dual function:] $D(\boldsymbol{\lambda}, \boldsymbol{\nu}) := \inf_{\mathbf{x}} L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}) \in \mathbb{R}$
+	\item[Dual Problem:] $\max_{\boldsymbol{\lambda}, \boldsymbol{\nu}} D(\boldsymbol{\lambda}, \boldsymbol{\nu})$ s.t. $\boldsymbol{\lambda} \geq \mathbf{0}$. Note: $\max_{\boldsymbol{\lambda}, \boldsymbol{\nu}} D(\boldsymbol{\lambda}, \boldsymbol{\nu}) \le \min_\mathbf{x}{f(\mathbf{x})}$, equality if $dom\ f$ and $f$ convex
+\end{compactdesc}
