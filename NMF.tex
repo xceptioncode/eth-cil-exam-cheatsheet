@@ -19,8 +19,8 @@ $p(z|d_i) = \frac{\sum_j x_{ij}q_{zij}}{\sum_j x_{ij}}, p(w_j|z) = \frac{\sum_i 
 
 \subsection*{Latent Dirichlet Allocation}
 To sample a new document, we need to extend $X$ and $U^T$ with a new row, s.t. $X=U^T V$. (While pLSA fixes both dimensions)\\
-For each $d_i$ sample u\textasciitilde Dirichlet($\alpha$): $p(u_i|\alpha) = \prod_{z=1}^K u_{zi}^{\alpha_k-1}$, then $z^t$\textasciitilde Multi($u_i$), $w^t$\textasciitilde Multi($v_{z^t}$)\\
-LDA multinomial model: $p(\mathbf{x}|V,u) = \frac{l!}{\prod_j \mathbf{x}_j!}\prod_j \pi_j^{\mathbf{x}_j}$ 
+For each $d_i$ sample topic weights $\mathbf{u}_i$\textasciitilde Dirichlet($\alpha$): $p(u_i|\alpha) = \prod_{z=1}^K u_{zi}^{\alpha_k-1}$, then topic $z^t$\textasciitilde Multi($u_i$), word $w^t$\textasciitilde Multi($v_{z^t}$)\\
+Multinom. obsv. model on wc vec: $p(\mathbf{x}|V,u) = \frac{l!}{\prod_j \mathbf{x}_j!}\prod_j \pi_j^{\mathbf{x}_j}$ 
 where $\pi_j=\sum_z v_{zj} u_z$, $l=\sum_j x_j$ \\
 Bayesian averaging over $\mathbf{u}$: $p(\mathbf{x}|\mathbf{V},\alpha)=\int p(\mathbf{x}|\mathbf{V},\mathbf{u})p(\mathbf{u}|\alpha)d\mathbf{u}$
 

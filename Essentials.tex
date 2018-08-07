@@ -41,7 +41,7 @@
 	\item
 	$\|\mathbf{M}\|_1 = \sum_{i,j} | m_{i,j}|$ \\
 	\item $\|\mathbf{M}\|_2 = \sigma_{\text{max}}(\mathbf{M}) = \|\sigma(\mathbf(M))\|_\infty$\\
-	\item $\|\mathbf{M}\|_p = \max_{\mathbf{v} \neq 0} \frac{\|\mathbf{M}\mathbf{v}\|_p}{\|\mathbf{v}\|_p} = \|\sigma(\mathbf{A})\|_p$ (Schatten)\\
+	\item $\|\mathbf{M}\|_p = \max_{\mathbf{v} \neq 0} \frac{\|\mathbf{M}\mathbf{v}\|_p}{\|\mathbf{v}\|_p}$ \\
 	\item $\|\mathbf{M}\|_\star = \sum_{i=1}^{\min(m, n)} \sigma_i = \|\sigma(\mathbf{A})\|_1$ (nuclear)
 \end{inparaitem}
 
@@ -57,12 +57,6 @@ $\frac{\partial}{\partial \mathbf{x}}(\|\mathbf{x}\|^2_2) = \frac{\partial}{\par
 $\frac{\partial}{\partial \mathbf{X}}(\|\mathbf{X}\|_F^2) = 2\mathbf{X}$ \quad
 $\frac{\partial}{\partial \mathbf{x}}\log(x) = \frac{1}{x}$
 
-\subsection*{Eigenvalue / -vectors}
-Eigenvalue Problem: $\mathbf{Ax} = \lambda \mathbf{x}$\\
-1. solve $\operatorname{det}(\mathbf{A} - \lambda \mathbf{I}) \overset{!}{=} 0$ resulting in $\{\lambda_i\}_i$\\
-2. $\forall \lambda_i$:
-solve $(\mathbf{A} - \lambda_i \mathbf{I}) \mathbf{x}_i = \mathbf{0}$, for $\mathbf{x}_i$.
-
 \subsection*{Eigendecomposition}
 $\mathbf{A} \in \mathbb{R}^{N \times N}$ then $\mathbf{A} = \mathbf{Q} \boldsymbol{\Lambda} \mathbf{Q}^{-1}$ with $\mathbf{Q} \in \mathbb{R}^{N \times N}$.\\
 if fullrank: $\mathbf{A}^{-1} = \mathbf{Q} \boldsymbol{\Lambda}^{-1} \mathbf{Q}^{-1}$ and $(\boldsymbol{\Lambda}^{-1})_{i,i} = \frac{1}{\lambda_i}$.\\
@@ -77,16 +71,12 @@ if $\mathbf{A}$ symmetric: $A = \mathbf{Q} \boldsymbol{\Lambda} \mathbf{Q^\top}$
 	\item $P(x|y) = \frac{P(y|x)P(x)}{P(y)}$ (Bayes' rule)
 	\item $P(x|y) = P(x) \Leftrightarrow P(y|x) = P(y)$ (iff $X$, $Y$ independent)
 	\item $P(x_1, \ldots, x_n) = \prod_{i=1}^n P(x_i)$ (iff IID)
-	\item Variance $Var[X]:= E[(X-\mu_x)^2]:=\sum_{x \in X}(x-\mu_x)^2P(x)$
+	\item Variance $Var[X]:= E[(X-\mu_x)^2]:=\sum_{x \in X}(x-\mu_x)^2P(x)= E(X^2) - E(X)^2$
 	\item expectation $\mu_x := E[X]:=\sum_{x \in X}xP(x)$
 	\item standard deviation $\sigma_x := \sqrt{Var[X]}$
 \end{inparaitem}
 
 
 \subsection*{Lagrangian Multipliers}
-Minimize  $f(\mathbf{x})$ s.t. $g_i(\mathbf{x}) \leq 0,\ i = 1, .., m$ (\textbf{inequality constr.}) and $h_i(\mathbf{x}) = \mathbf{a}_i^\top \mathbf{x} - b_i = 0,\ i = 1, .., p$ (\textbf{equality constraint})
-\begin{compactdesc}
-	\item[Lagrangian:] $L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}) := f(\mathbf{x}) + \sum_{i=1}^m \lambda_i g_i(\mathbf{x}) + \sum_{i=1}^p \nu_i h_i(\mathbf{x})$
-	\item[Dual function:] $D(\boldsymbol{\lambda}, \boldsymbol{\nu}) := \inf_{\mathbf{x}} L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}) \in \mathbb{R}$
-	\item[Dual Problem:] $\max_{\boldsymbol{\lambda}, \boldsymbol{\nu}} D(\boldsymbol{\lambda}, \boldsymbol{\nu})$ s.t. $\boldsymbol{\lambda} \geq \mathbf{0}$. Note: $\max_{\boldsymbol{\lambda}, \boldsymbol{\nu}} D(\boldsymbol{\lambda}, \boldsymbol{\nu}) \le \min_\mathbf{x}{f(\mathbf{x})}$, equality if $dom\ f$ and $f$ convex
-\end{compactdesc}
+Minimize  $f(\mathbf{x})$ s.t. $g_i(\mathbf{x}) \leq 0,\ i = 1, .., m$ (\textbf{inequality constr.}) and $h_i(\mathbf{x}) = \mathbf{a}_i^\top \mathbf{x} - b_i = 0,\ i = 1, .., p$ (\textbf{equality constraint}) \\
+$L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}) := f(\mathbf{x}) + \sum_{i=1}^m \lambda_i g_i(\mathbf{x}) + \sum_{i=1}^p \nu_i h_i(\mathbf{x})$

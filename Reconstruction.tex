@@ -24,8 +24,7 @@ Convex when fixed one.
 
 % YZF: need revising
 \subsection*{Convex Optimization}
-Def.: $\{(x,t)|x \in dom f, f(x) \leq t\}$, $f : \mathbb{R}^D \rightarrow \mathbb{R}$ is convex, if $dom\ f$ is a convex set, and if $\forall \mathbf{x}, \mathbf{y} \in dom\ f$, and $\forall \alpha\in[0,1]$: $f(\alpha \mathbf{x} + (1 - \alpha)\mathbf{y}) \leq \alpha f(\mathbf{x}) + (1-\alpha)f(\mathbf{y})$. \textbf{Convergence}: $f(\mathbf{x}^{(t)}) - f(\mathbf{x}^*) \le \frac{c}{t}$.
-\textbf{Subgradient} $g \in \mathbb{R}^D$ of $f$ at $\mathbf{x}$: $f(\mathbf{y}) \geq f(\mathbf{x}) + g^\top(\mathbf{y}-\mathbf{x}) \ \forall \mathbf{y}$ \\
+Def.: $\{(x,t)|x \in dom f, f(x) \leq t\}$, $f : \mathbb{R}^D \rightarrow \mathbb{R}$ is convex, if $dom\ f$ is a convex set, and if $\forall \mathbf{x}, \mathbf{y} \in dom\ f$, and $\forall \alpha\in[0,1]$: $f(\alpha \mathbf{x} + (1 - \alpha)\mathbf{y}) \leq \alpha f(\mathbf{x}) + (1-\alpha)f(\mathbf{y})$. 
 Convex $\iff$ Hessian p.s.d $\iff$ local=global \\
 Positive semi-definite: all principal minors (same-indexed rows and columns) $\geq$ 0\\
 Positive definite: leading principal minors $>$ 0
