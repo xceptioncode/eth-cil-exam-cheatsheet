@@ -1,10 +1,8 @@
 # Status
-Done! This cheatsheet helped me a lot: I got a 6.0 in the Spring 2018 exam (with a bonus from the [project](https://github.com/Xivid/cil-text-classification-2018) which ranked #1 on kaggle). A LOT of the exam questions can be answered by copying from the cheatsheet. :)
-
-Feel free to go ahead and create your own fork if you want to extend it or update it in future years.
+working
 
 # Download the PDF
-[Latex online link](https://latexonline.cc/compile?git=https://github.com/Xivid/eth-cil-exam-summary&target=main.tex)
+[Latex online link](https://latexonline.cc/compile?git=https://github.com/xceptioncode/eth-cil-exam-summary&target=main.tex)
 
 # Disclaimer
 Please be advised that nothing found here is guaranteed to be complete, correct or anything else. Feel free to report errors, we will try to fix them.
