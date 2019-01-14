@@ -13,8 +13,6 @@
 	\item[Outer Product:] $\mathbf{u} \mathbf{v}^\top$, $(\mathbf{u} \mathbf{v}^\top)_{i, j} = \mathbf{u}_i \mathbf{v}_j$
     \item[Trace:] $\mathit{trace}(\mathbf{XYZ})=\mathit{trace}(\mathbf{ZXY})$
 	\item[Transpose:] $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$,  $(\mathbf{A}\mathbf{B})^\top= \mathbf{B}^\top\mathbf{A}^\top$, $(\mathbf{A}+\mathbf{B})^\top= \mathbf{A}^\top + \mathbf{B}^\top$
-	\item[Cross product:] $\vec{a}\times\vec{b}=(a_2b_3-a_3b_2, a_3b_1-a_1b_3, a_1b_2-a_2b_1)^\top$
-	\item[Cauchy-Schwarz inequality:] $|\langle\mathbf{u}, \mathbf{v}\rangle| \leq \|\mathbf{u}\|\|\mathbf{v}\|$
 \end{compactdesc}
 
 \subsection*{Norms}
@@ -43,7 +41,7 @@ $\frac{\partial}{\partial \mathbf{X}}(\mathbf{c}^\top \mathbf{X}^\top \mathbf{b}
 $\frac{\partial}{\partial \mathbf{x}}(\| \mathbf{x}-\mathbf{b} \|_2) = \frac{\mathbf{x}-\mathbf{b}}{\|\mathbf{x}-\mathbf{b}\|_2}$ \quad
 $\frac{\partial}{\partial \mathbf{x}}(\|\mathbf{x}\|^2_2) = \frac{\partial}{\partial \mathbf{x}} (\mathbf{x}^\top \mathbf{x}) = 2\mathbf{x}$\\
 $\frac{\partial}{\partial \mathbf{X}}(\|\mathbf{X}\|_F^2) = 2\mathbf{X}$ \quad
-$\frac{\partial}{\partial \mathbf{x}}\log(x) = \frac{1}{x}$
+$\frac{\partial}{\partial \mathbf{x}}\log(x) = \frac{1}{x}$ \quad
 $\frac{\partial}{\partial \mathbf{x}}\frac{1}{x} = \frac{-f'}{f^2}$
 
 \subsection*{Eigendecomposition}
@@ -67,5 +65,6 @@ if $\mathbf{A}$ symmetric: $A = \mathbf{Q} \boldsymbol{\Lambda} \mathbf{Q^\top}$
 
 
 \subsection*{Lagrangian Multipliers}
-Minimize  $f(\mathbf{x})$ s.t. $g_i(\mathbf{x}) \leq 0,\ i = 1, .., m$ (\textbf{inequality constr.}) and $h_i(\mathbf{x}) = \mathbf{a}_i^\top \mathbf{x} - b_i = 0,\ i = 1, .., p$ (\textbf{equality constraint}) \\
-$L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}) := f(\mathbf{x}) + \sum_{i=1}^m \lambda_i g_i(\mathbf{x}) + \sum_{i=1}^p \nu_i h_i(\mathbf{x})$
+\\
+\\
+\\
