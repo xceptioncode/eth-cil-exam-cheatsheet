@@ -17,6 +17,8 @@ $\mathbf{N} = (n_{ij}) \in \mathbb{R}^{|V|\times|C|} = \# of word w_i$ in contex
 $= \sum_{n_{ij} > 0} f(n_{ij})(\log n_{ij} - \log \exp[\langle \mathbf{x}_i, \mathbf{y}_j \rangle + b_i + d_j])^2$\\
 with $f(n) = \min\{1, (\frac{n}{n_{max}})^\alpha\}$, $\alpha \in (0;1]$.\\
 unnormalized distr. $\rightarrow$ 2-sided loss function\\
+It can also be written as matrix factorization problem: \vspace{10mm}
+Perform SGD to find local minimum
 1. sample $(i,j) u.a.r, s.t. n_{ij}>0$\\
 2. $\mathbf{x}_i^{new} \leftarrow \mathbf{x}_i + 2\eta f(n_{ij})(\log n_{ij} - \langle \mathbf{x}_i, \mathbf{y}_j \rangle)\mathbf{y}_j$\\
 3. $\mathbf{y}_j^{new} \leftarrow \mathbf{y}_j + 2\eta f(n_{ij})(\log n_{ij} - \langle \mathbf{x}_i, \mathbf{y}_j \rangle)\mathbf{x}_i$
