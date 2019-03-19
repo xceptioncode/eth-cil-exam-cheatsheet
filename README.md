@@ -1,5 +1,5 @@
 # Status
-working
+Final
 
 # Download the PDF
 [Latex online link](https://latexonline.cc/compile?git=https://github.com/xceptioncode/eth-cil-exam-summary&target=main.tex)
